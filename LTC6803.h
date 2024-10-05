@@ -26,9 +26,13 @@ class ltc6803
 	
 			float IC_tmp;
 			float cell_voltages[12];
+			float cell_temp_voltages[12];
 			String flag_cell[12];
 			int tmp_cell[12];
 
+			
+
+	private:
 			void readTemp();
 			void cellBalance();
 			void readVolts();
@@ -37,9 +41,6 @@ class ltc6803
 			void findRegisters();
 			void cellTempEven();
 			void cellTempOdd();
-
-	private:
-	
 			
 				
 			int _CS; 			// chip select pin
