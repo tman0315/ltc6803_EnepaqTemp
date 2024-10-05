@@ -51,8 +51,39 @@ void ltc6803::getData()
   pec1 = getPEC();            // Calculate the PEC for config registers automatically in every loop.
   writeRegisters();           // Calling writing to configuration registers function.
   readVolts();                // Reading each battery cell voltage.
-  cellBalance();              // Reading the OV/UV flags for each cell.
+  //cellBalance();              // Reading the OV/UV flags for each cell.
   readTemp();			// Reading the temperature from Vtemp1 and Vtemp2 pins.
+  delay(50);
+  cellTempEven();
+  findRegisters();
+  pec1=getPEC();
+  writeRegisters();
+  readVolts();
+	int i
+	for(i = 0; i < _cellNumber; i++)
+		{
+			if((i%2)==0)
+			{
+				cell_temp_voltages[i]=cell_voltages[i];
+			}
+		}
+	delay(50);
+	cellTempOdd();
+  findRegisters();
+  pec1=getPEC();
+  writeRegisters();
+  readVolts();
+	int i
+	for(i = 0; i < _cellNumber; i++)
+		{
+			if((i%2)!=0)
+			{
+				cell_temp_voltages[i]=cell_voltages[i];
+			}
+		}
+	delay(50);
+		
+}
   
 }
 
