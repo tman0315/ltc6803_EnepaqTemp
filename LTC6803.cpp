@@ -52,7 +52,7 @@ void ltc6803::getData()
   writeRegisters();           // Calling writing to configuration registers function.
   readVolts();                // Reading each battery cell voltage.
   cellBalance();              // Reading the OV/UV flags for each cell.
-  readTemp();  				  // Reading the temperature from Vtemp1 and Vtemp2 pins.
+  readTemp();			// Reading the temperature from Vtemp1 and Vtemp2 pins.
   
 }
 
@@ -298,6 +298,37 @@ void ltc6803::cellBalance()
   }
  }
 }
+
+//Command to set Discharge pins for even cells to read temp sensor voltage
+void ltc6803::cellTempEven()
+{
+	int i
+	for(i = 0; i < _cellNumber; i++)
+		{
+			if((i%2)==0)
+			{
+				DCC[i]=1;
+			}else{
+				DCC[i]=0;
+			}
+		}
+}
+//Command to set Discharge pins for even cells to read temp sensor voltage
+void ltc6803::cellTempOdd()
+{
+	int i
+	for(i = 0; i < _cellNumber; i++)
+		{
+			if((i%2)==0)
+			{
+				DCC[i]=0;
+			}else{
+				DCC[i]=1;
+			}
+		}
+}
+}
+
 //-----------------------------------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------------------------------//
 
