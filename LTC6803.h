@@ -28,16 +28,19 @@ class ltc6803
 			float cell_voltages[12];
 			String flag_cell[12];
 			int tmp_cell[12];
-			
 
-	private:
-	
 			void readTemp();
 			void cellBalance();
 			void readVolts();
 			char getPEC();
 			void writeRegisters();
 			void findRegisters();
+			void cellTempEven();
+			void cellTempOdd();
+
+	private:
+	
+			
 				
 			int _CS; 			// chip select pin
 			int _cellNumber; 	// Number of battery cells - maximum is 12 cells
