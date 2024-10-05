@@ -59,7 +59,7 @@ void ltc6803::getData()
   pec1=getPEC();
   writeRegisters();
   readVolts();
-	int i
+	int i;
 	for(i = 0; i < _cellNumber; i++)
 		{
 			if((i%2)==0)
@@ -73,19 +73,19 @@ void ltc6803::getData()
   pec1=getPEC();
   writeRegisters();
   readVolts();
-	int i
-	for(i = 0; i < _cellNumber; i++)
+	int j;
+	for(j = 0; j < _cellNumber; j++)
 		{
-			if((i%2)!=0)
+			if((j%2)!=0)
 			{
-				cell_temp_voltages[i]=cell_voltages[i];
+				cell_temp_voltages[j]=cell_voltages[j];
 			}
 		}
 	delay(50);
 		
 }
   
-}
+
 
 //-----------------------------------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------------------------------//
@@ -333,7 +333,7 @@ void ltc6803::cellBalance()
 //Command to set Discharge pins for even cells to read temp sensor voltage
 void ltc6803::cellTempEven()
 {
-	int i
+	int i;
 	for(i = 0; i < _cellNumber; i++)
 		{
 			if((i%2)==0)
@@ -347,7 +347,7 @@ void ltc6803::cellTempEven()
 //Command to set Discharge pins for even cells to read temp sensor voltage
 void ltc6803::cellTempOdd()
 {
-	int i
+	int i;
 	for(i = 0; i < _cellNumber; i++)
 		{
 			if((i%2)==0)
@@ -358,7 +358,7 @@ void ltc6803::cellTempOdd()
 			}
 		}
 }
-}
+
 
 //-----------------------------------------------------------------------------------------------------//
 //-----------------------------------------------------------------------------------------------------//
