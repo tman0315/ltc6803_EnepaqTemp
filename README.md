@@ -1,6 +1,9 @@
 <h1 align="center">Arduino UNO Library for LTC6803 BMS IC</h1>
 
 # Overview
+This is inprogress and currently is not complete do not assume that this will work in it current state
+
+
 LTC6803 library is an Arduino UNO library for Linear technology's LTC6803 Battery Monitoring and Management System "BMS" IC. It was very difficult for me to find an easy to use library with exmaples for arduino UNO. So I had to write the code from scratch based on LTC6803-1's datasheet few years ago to be able to create a BMS project. Now I'm converting this code into a library which anyone can implement into their project very easily and with minimum modifications. 
 
 
